@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的网站</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #6dd5fa, #2980b9);
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .chat-frame {
+            width: 400px;
+            height: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            border: none;
+        }
+
+        .btn {
+            background-color: #fff;
+            color: #2980b9;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background-color: #f1f1f1;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>欢迎访问我的网站</h1>
+    <p>右侧聊天窗口可实时咨询</p>
+
+    <!-- 嵌入式聊天窗口 -->
+    <iframe class="chat-frame" src="https://tawk.to/chat/6a05db1c1358261c34fe7c05/1jojdvqfr" title="实时聊天"></iframe>
+
+    <a href="#" class="btn" onclick="alert('这里可以跳转到联系页面')">联系我们</a>
+</div>
+
+</body>
+</html>
