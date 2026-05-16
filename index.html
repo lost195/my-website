@@ -12,7 +12,7 @@
 
     body {
       margin: 0;
-      background: #f2f2f2;
+      background: #f3f3f3;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
       color: #222;
     }
@@ -63,10 +63,10 @@
       background: #fff;
     }
 
-    .message-row {
+    .service-top {
       display: flex;
-      align-items: flex-start;
-      margin-bottom: 20px;
+      align-items: center;
+      margin-bottom: 10px;
     }
 
     .avatar {
@@ -76,120 +76,109 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 21px;
-      flex-shrink: 0;
+      font-size: 22px;
       margin-right: 10px;
+      flex-shrink: 0;
     }
 
-    .sender-line {
+    .sender {
       font-size: 18px;
-      color: #748093;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .sender-name {
-      font-weight: 500;
+      color: #718096;
+      margin-right: 8px;
     }
 
     .time {
       font-size: 16px;
-      color: #8a94a6;
+      color: #8b95a5;
     }
 
-    .service-content {
-      flex: 1;
-    }
-
-    .bubble {
+    .message-box {
+      margin-left: 44px;
       display: inline-block;
       background: #ededf0;
-      color: #111;
-      padding: 12px 14px;
+      padding: 10px 8px;
       font-size: 20px;
-      line-height: 1.55;
-      max-width: 100%;
+      line-height: 1.42;
+      color: #111;
       white-space: pre-line;
+      max-width: 390px;
     }
 
-    .user-row {
+    .user-message {
+      display: flex;
       justify-content: flex-end;
+      margin: 16px 0;
     }
 
     .user-bubble {
       background: #1e88f5;
       color: #fff;
       border-radius: 8px;
-      padding: 10px 14px;
+      padding: 9px 14px;
       font-size: 18px;
-      line-height: 1.5;
       max-width: 72%;
       word-break: break-word;
     }
 
     .input-area {
       height: 180px;
-      border-top: 1px solid #e5e5e5;
+      border-top: 1px solid #e6e6e6;
       background: #fff;
       flex-shrink: 0;
       display: flex;
       flex-direction: column;
     }
 
-    .text-input {
+    .input {
       flex: 1;
       border: none;
       outline: none;
       resize: none;
-      padding: 14px 22px;
+      padding: 12px 22px;
       font-size: 18px;
-      color: #333;
       font-family: inherit;
+      color: #333;
     }
 
-    .text-input::placeholder {
+    .input::placeholder {
       color: #b8b8b8;
     }
 
-    .input-tools {
-      height: 70px;
+    .bottom-bar {
+      height: 74px;
       display: flex;
       align-items: center;
-      padding: 0 16px 8px;
-      gap: 26px;
+      padding: 0 14px 10px;
+      gap: 24px;
     }
 
     .tool {
-      width: 36px;
-      height: 36px;
       border: none;
       background: transparent;
       font-size: 30px;
-      cursor: pointer;
       padding: 0;
+      cursor: pointer;
     }
 
-    .send-btn {
+    .send {
       margin-left: auto;
       background: #1e88f5;
       color: #fff;
       border: none;
       border-radius: 8px;
-      padding: 9px 18px;
+      padding: 8px 18px;
       font-size: 18px;
       cursor: pointer;
     }
 
-    .send-btn:active {
-      transform: scale(0.98);
+    .send:active {
+      transform: scale(0.97);
     }
 
     .footer-tip {
       text-align: center;
       font-size: 13px;
-      color: #d1d1d1;
+      color: #d3d3d3;
       padding-bottom: 10px;
     }
 
@@ -198,20 +187,22 @@
         max-width: none;
       }
 
-      .bubble {
+      .message-box {
+        max-width: 390px;
+        font-size: 18px;
+        margin-left: 44px;
+      }
+
+      .sender {
         font-size: 17px;
       }
 
-      .sender-line {
-        font-size: 16px;
-      }
-
       .time {
-        font-size: 14px;
+        font-size: 15px;
       }
 
       .input-area {
-        height: 165px;
+        height: 170px;
       }
     }
   </style>
@@ -226,48 +217,38 @@
     </header>
 
     <main class="chat-body" id="chatBody">
-      <div class="message-row">
+      <div class="service-top">
         <div class="avatar">👩🏻‍💼</div>
-
-        <div class="service-content">
-          <div class="sender-line">
-            <span class="sender-name">客服</span>
-            <span class="time">17:43:36</span>
-          </div>
-
-          <div class="bubble">客服在线时间9:30-24:00（下班请留言，上班后第一时间回复）
-
-温馨提示：目前只有【1-8成品直登账号！】
-虚拟手机号暂时没有呢！
-请平台点击【仅退款】即可！
-
-第一步：发对应app数字给客服
-0、不要发敏感字
-1、打雀 ❌
-2、指✈️飞鸡
-3、古哥 由管
-4、脸输 🧩
-5、INs
-6、🐔皮踢
-7、踢克掏可
-8、WS</div>
-        </div>
+        <div class="sender">客服</div>
+        <div class="time">17:43:36</div>
       </div>
+
+      <div class="message-box">客服在线时间9:30-24:00（下班请留言，上班后第一时间回复）
+
+温馨提示：请在此输入您的问题，客服看到后会尽快回复。
+
+请选择您需要咨询的类型：
+1、商品咨询
+2、订单问题
+3、售后服务
+4、退款问题
+5、账号问题
+6、其他问题</div>
     </main>
 
     <section class="input-area">
       <textarea
         id="messageInput"
-        class="text-input"
+        class="input"
         placeholder="请输入文字 # 长按撤回·引用·复制"
       ></textarea>
 
-      <div class="input-tools">
+      <div class="bottom-bar">
         <button class="tool" type="button">🙂</button>
         <button class="tool" type="button">📁</button>
         <button class="tool" type="button">🔊</button>
 
-        <button class="send-btn" type="button" onclick="sendMessage()">发送</button>
+        <button class="send" type="button" onclick="sendMessage()">发送</button>
       </div>
 
       <div class="footer-tip">您也需要客服系统?</div>
@@ -283,11 +264,8 @@
       if (!text) return;
 
       const row = document.createElement("div");
-      row.className = "message-row user-row";
-
-      row.innerHTML = `
-        <div class="user-bubble">${escapeHtml(text)}</div>
-      `;
+      row.className = "user-message";
+      row.innerHTML = `<div class="user-bubble">${escapeHtml(text)}</div>`;
 
       chatBody.appendChild(row);
       input.value = "";
