@@ -1,80 +1,352 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的网站</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #6dd5fa, #2980b9);
-            color: #fff;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>在线客服</title>
 
-        .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            text-align: center;
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
+    body {
+      margin: 0;
+      background: #f2f4f7;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Microsoft YaHei", Arial, sans-serif;
+      color: #1f2937;
+    }
 
-        p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-        }
+    .chat-page {
+      width: 100%;
+      max-width: 520px;
+      height: 100vh;
+      margin: 0 auto;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+    }
 
-        .chat-frame {
-            width: 400px;
-            height: 500px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
-            border: none;
-        }
+    .chat-header {
+      height: 64px;
+      background: linear-gradient(135deg, #1687ff, #006eff);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      flex-shrink: 0;
+    }
 
-        .btn {
-            background-color: #fff;
-            color: #2980b9;
-            border: none;
-            padding: 12px 25px;
-            font-size: 1em;
-            font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            margin-top: 15px;
-        }
+    .back {
+      font-size: 30px;
+      margin-right: 12px;
+      line-height: 1;
+    }
 
-        .btn:hover {
-            background-color: #f1f1f1;
-            transform: scale(1.05);
-        }
-    </style>
+    .header-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+      font-size: 22px;
+    }
+
+    .header-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header-title {
+      font-size: 19px;
+      font-weight: 600;
+    }
+
+    .header-status {
+      font-size: 12px;
+      opacity: 0.9;
+      margin-top: 2px;
+    }
+
+    .chat-body {
+      flex: 1;
+      padding: 20px 16px;
+      overflow-y: auto;
+      background: #ffffff;
+    }
+
+    .time {
+      text-align: center;
+      font-size: 12px;
+      color: #9ca3af;
+      margin: 10px 0 18px;
+    }
+
+    .message-row {
+      display: flex;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+
+    .message-row.customer {
+      justify-content: flex-start;
+    }
+
+    .message-row.user {
+      justify-content: flex-end;
+    }
+
+    .avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #e8f1ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .customer .avatar {
+      margin-right: 10px;
+    }
+
+    .user .avatar {
+      margin-left: 10px;
+    }
+
+    .bubble {
+      max-width: 72%;
+      padding: 11px 14px;
+      border-radius: 12px;
+      font-size: 15px;
+      line-height: 1.6;
+      word-break: break-word;
+    }
+
+    .customer .bubble {
+      background: #f1f3f5;
+      color: #374151;
+      border-top-left-radius: 4px;
+    }
+
+    .user .bubble {
+      background: #1687ff;
+      color: #ffffff;
+      border-top-right-radius: 4px;
+    }
+
+    .chat-input-area {
+      flex-shrink: 0;
+      background: #ffffff;
+      border-top: 1px solid #e5e7eb;
+      padding: 12px 12px 16px;
+    }
+
+    .input-box {
+      min-height: 72px;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      background: #ffffff;
+      padding: 12px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 42px;
+      border: none;
+      outline: none;
+      resize: none;
+      font-size: 15px;
+      font-family: inherit;
+      color: #374151;
+    }
+
+    textarea::placeholder {
+      color: #b4bbc6;
+    }
+
+    .input-bottom {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .tools {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .tool-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 19px;
+      cursor: pointer;
+    }
+
+    .send-btn {
+      border: none;
+      background: #1687ff;
+      color: #ffffff;
+      border-radius: 10px;
+      padding: 9px 20px;
+      font-size: 15px;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(22, 135, 255, 0.28);
+    }
+
+    .send-btn:active {
+      transform: scale(0.98);
+    }
+
+    .footer-tip {
+      text-align: center;
+      color: #b6beca;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    .contact-real {
+      color: #1687ff;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 540px) {
+      .chat-page {
+        max-width: none;
+        height: 100vh;
+      }
+
+      .bubble {
+        max-width: 76%;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="chat-page">
+    <header class="chat-header">
+      <div class="back">‹</div>
+      <div class="header-icon">💬</div>
+      <div class="header-text">
+        <div class="header-title">在线客服</div>
+        <div class="header-status">客服在线 · 欢迎咨询</div>
+      </div>
+    </header>
 
-<div class="container">
-    <h1>欢迎访问我的网站</h1>
-    <p>右侧聊天窗口可实时咨询</p>
+    <main class="chat-body" id="chatBody">
+      <div class="time">今天 16:36</div>
 
-    <!-- 嵌入式聊天窗口 -->
-    <iframe class="chat-frame" src="https://tawk.to/chat/6a05db1c1358261c34fe7c05/1jojdvqfr" title="实时聊天"></iframe>
+      <div class="message-row user">
+        <div class="bubble">飞机多少钱</div>
+        <div class="avatar">👤</div>
+      </div>
 
-    <a href="#" class="btn" onclick="alert('这里可以跳转到联系页面')">联系我们</a>
-</div>
+      <div class="message-row user">
+        <div class="bubble">没人么</div>
+        <div class="avatar">👤</div>
+      </div>
 
+      <div class="message-row customer">
+        <div class="avatar">👩‍💼</div>
+        <div class="bubble">您好！请问有什么可以帮助您的？</div>
+      </div>
+    </main>
+
+    <section class="chat-input-area">
+      <div class="input-box">
+        <textarea id="messageInput" placeholder="请输入文字，描述您的问题..."></textarea>
+
+        <div class="input-bottom">
+          <div class="tools">
+            <button class="tool-btn" type="button">😊</button>
+            <button class="tool-btn" type="button">📎</button>
+            <button class="tool-btn" type="button">🎙️</button>
+          </div>
+
+          <button class="send-btn" type="button" onclick="sendMessage()">发送</button>
+        </div>
+      </div>
+
+      <div class="footer-tip">
+        会话由在线客服提供服务，
+        <span class="contact-real" onclick="openTawk()">点击联系人工客服</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- Tawk.to 真实客服系统 -->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {};
+    var Tawk_LoadStart = new Date();
+
+    (function () {
+      var s1 = document.createElement("script");
+      var s0 = document.getElementsByTagName("script")[0];
+
+      s1.async = true;
+      s1.src = "https://embed.tawk.to/6a05db1c1358261c34fe7c05/1jojdvqfr";
+      s1.charset = "UTF-8";
+      s1.setAttribute("crossorigin", "*");
+
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+
+    function openTawk() {
+      if (window.Tawk_API && window.Tawk_API.maximize) {
+        window.Tawk_API.maximize();
+      }
+    }
+
+    function sendMessage() {
+      const input = document.getElementById("messageInput");
+      const chatBody = document.getElementById("chatBody");
+      const text = input.value.trim();
+
+      if (!text) return;
+
+      const userRow = document.createElement("div");
+      userRow.className = "message-row user";
+      userRow.innerHTML = `
+        <div class="bubble">${text}</div>
+        <div class="avatar">👤</div>
+      `;
+
+      chatBody.appendChild(userRow);
+      input.value = "";
+      chatBody.scrollTop = chatBody.scrollHeight;
+
+      setTimeout(() => {
+        const serviceRow = document.createElement("div");
+        serviceRow.className = "message-row customer";
+        serviceRow.innerHTML = `
+          <div class="avatar">👩‍💼</div>
+          <div class="bubble">
+            已收到您的问题。为了让客服能正式回复您，请点击下方“联系人工客服”进入在线客服窗口。
+          </div>
+        `;
+        chatBody.appendChild(serviceRow);
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        openTawk();
+      }, 600);
+    }
+  </script>
 </body>
 </html>
