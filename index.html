@@ -10,255 +10,247 @@
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
       margin: 0;
-      background: #f3f3f3;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
-      color: #222;
+      width: 100%;
+      height: 100%;
+      background: #eeeeee;
+      font-family: Arial, "Microsoft YaHei", sans-serif;
+      color: #111;
     }
 
-    .chat-page {
+    .chat-wrapper {
       width: 100%;
-      max-width: 640px;
+      max-width: 630px;
       height: 100vh;
       margin: 0 auto;
-      background: #fff;
+      background: #ffffff;
       display: flex;
       flex-direction: column;
-      border-left: 1px solid #e5e5e5;
-      border-right: 1px solid #e5e5e5;
+      border: 1px solid #dddddd;
     }
 
-    .chat-header {
+    .topbar {
       height: 64px;
       background: #1e88f5;
-      color: #fff;
+      color: #ffffff;
       display: flex;
       align-items: center;
-      padding: 0 14px;
+      padding: 0 12px;
       flex-shrink: 0;
     }
 
     .back {
-      font-size: 38px;
-      line-height: 1;
-      margin-right: 12px;
+      font-size: 40px;
       font-weight: 300;
+      margin-right: 10px;
+      line-height: 1;
     }
 
-    .chat-icon {
+    .icon {
       font-size: 34px;
       margin-right: 12px;
+      line-height: 1;
     }
 
-    .title {
-      font-size: 22px;
-      font-weight: 500;
+    .top-title {
+      font-size: 23px;
+      font-weight: 400;
     }
 
-    .chat-body {
+    .chat-main {
       flex: 1;
-      padding: 34px 18px 18px;
+      background: #ffffff;
+      padding: 36px 20px 20px 20px;
       overflow-y: auto;
-      background: #fff;
     }
 
-    .service-top {
+    .service-info {
       display: flex;
       align-items: center;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .avatar {
       width: 34px;
       height: 34px;
-      border-radius: 50%;
+      margin-right: 9px;
+      font-size: 25px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
-      margin-right: 10px;
-      flex-shrink: 0;
     }
 
-    .sender {
+    .name {
       font-size: 18px;
-      color: #718096;
-      margin-right: 8px;
+      color: #728196;
+      margin-right: 10px;
     }
 
     .time {
-      font-size: 16px;
-      color: #8b95a5;
+      font-size: 17px;
+      color: #7d8aa0;
     }
 
-    .message-box {
-      margin-left: 44px;
-      display: inline-block;
-      background: #ededf0;
-      padding: 10px 8px;
-      font-size: 20px;
-      line-height: 1.42;
-      color: #111;
+    .service-message {
+      margin-left: 43px;
+      width: 390px;
+      background: #eeeeee;
+      padding: 8px 8px;
+      font-size: 21px;
+      line-height: 1.45;
+      color: #111111;
       white-space: pre-line;
-      max-width: 390px;
     }
 
     .user-message {
       display: flex;
       justify-content: flex-end;
-      margin: 16px 0;
+      margin: 20px 0;
     }
 
     .user-bubble {
       background: #1e88f5;
-      color: #fff;
-      border-radius: 8px;
-      padding: 9px 14px;
-      font-size: 18px;
+      color: #ffffff;
+      border-radius: 7px;
+      padding: 8px 14px;
+      font-size: 20px;
+      line-height: 1.4;
       max-width: 72%;
       word-break: break-word;
     }
 
-    .input-area {
-      height: 180px;
-      border-top: 1px solid #e6e6e6;
-      background: #fff;
+    .input-panel {
+      height: 202px;
+      background: #ffffff;
+      border-top: 1px solid #e4e4e4;
       flex-shrink: 0;
       display: flex;
       flex-direction: column;
     }
 
-    .input {
-      flex: 1;
+    .message-input {
+      height: 78px;
       border: none;
       outline: none;
       resize: none;
-      padding: 12px 22px;
+      padding: 13px 20px;
       font-size: 18px;
-      font-family: inherit;
+      font-family: Arial, "Microsoft YaHei", sans-serif;
       color: #333;
     }
 
-    .input::placeholder {
+    .message-input::placeholder {
       color: #b8b8b8;
     }
 
-    .bottom-bar {
-      height: 74px;
+    .tool-row {
+      flex: 1;
       display: flex;
       align-items: center;
-      padding: 0 14px 10px;
+      padding: 0 16px;
       gap: 24px;
     }
 
     .tool {
       border: none;
       background: transparent;
-      font-size: 30px;
+      font-size: 31px;
       padding: 0;
       cursor: pointer;
+      line-height: 1;
     }
 
-    .send {
+    .send-btn {
       margin-left: auto;
       background: #1e88f5;
-      color: #fff;
+      color: #ffffff;
       border: none;
-      border-radius: 8px;
-      padding: 8px 18px;
-      font-size: 18px;
+      border-radius: 7px;
+      padding: 8px 17px;
+      font-size: 20px;
       cursor: pointer;
     }
 
-    .send:active {
-      transform: scale(0.97);
-    }
-
-    .footer-tip {
+    .footer-text {
+      height: 34px;
       text-align: center;
-      font-size: 13px;
-      color: #d3d3d3;
-      padding-bottom: 10px;
+      color: #d6d6d6;
+      font-size: 14px;
+      line-height: 26px;
     }
 
-    @media (max-width: 480px) {
-      .chat-page {
+    @media (max-width: 640px) {
+      .chat-wrapper {
         max-width: none;
+        border-left: none;
+        border-right: none;
       }
 
-      .message-box {
+      .service-message {
+        width: calc(100vw - 92px);
         max-width: 390px;
-        font-size: 18px;
-        margin-left: 44px;
-      }
-
-      .sender {
-        font-size: 17px;
-      }
-
-      .time {
-        font-size: 15px;
-      }
-
-      .input-area {
-        height: 170px;
+        font-size: 20px;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="chat-page">
-    <header class="chat-header">
+  <div class="chat-wrapper">
+    <div class="topbar">
       <div class="back">‹</div>
-      <div class="chat-icon">💬</div>
-      <div class="title">在线客服</div>
-    </header>
+      <div class="icon">💬</div>
+      <div class="top-title">在线客服</div>
+    </div>
 
-    <main class="chat-body" id="chatBody">
-      <div class="service-top">
+    <div class="chat-main" id="chatMain">
+      <div class="service-info">
         <div class="avatar">👩🏻‍💼</div>
-        <div class="sender">客服</div>
+        <div class="name">客服</div>
         <div class="time">17:43:36</div>
       </div>
 
-      <div class="message-box">客服在线时间9:30-24:00（下班请留言，上班后第一时间回复）
+      <div class="service-message">客服在线时间9:30-24:00（下班请留言，上班后第一时间回复）
 
-温馨提示：请在此输入您的问题，客服看到后会尽快回复。
+温馨提示： 目前只有【1-8成品直登账号!】
+虚拟手机号暂时没有呢!
+请平台点击【仅退款】即可!
 
-请选择您需要咨询的类型：
-1、商品咨询
-2、订单问题
-3、售后服务
-4、退款问题
-5、账号问题
-6、其他问题</div>
-    </main>
+第一步：发对应app数字给客服
+0、不要发敏感字
+1、打雀 ❌
+2、指🛩飞鸡
+3、古哥 由管
+4、脸输📚（FB）
+5、iNs
+6、🐔皮踢（GPT）
+7、踢克掏可（TK）
+8、WS</div>
+    </div>
 
-    <section class="input-area">
+    <div class="input-panel">
       <textarea
-        id="messageInput"
-        class="input"
+        id="msgInput"
+        class="message-input"
         placeholder="请输入文字 # 长按撤回·引用·复制"
       ></textarea>
 
-      <div class="bottom-bar">
-        <button class="tool" type="button">🙂</button>
-        <button class="tool" type="button">📁</button>
-        <button class="tool" type="button">🔊</button>
-
-        <button class="send" type="button" onclick="sendMessage()">发送</button>
+      <div class="tool-row">
+        <button class="tool">🙂</button>
+        <button class="tool">📁</button>
+        <button class="tool">🔊</button>
+        <button class="send-btn" onclick="sendMsg()">发送</button>
       </div>
 
-      <div class="footer-tip">您也需要客服系统?</div>
-    </section>
+      <div class="footer-text">您也需要客服系统?</div>
+    </div>
   </div>
 
   <script>
-    function sendMessage() {
-      const input = document.getElementById("messageInput");
-      const chatBody = document.getElementById("chatBody");
+    function sendMsg() {
+      const input = document.getElementById("msgInput");
+      const main = document.getElementById("chatMain");
       const text = input.value.trim();
 
       if (!text) return;
@@ -267,9 +259,9 @@
       row.className = "user-message";
       row.innerHTML = `<div class="user-bubble">${escapeHtml(text)}</div>`;
 
-      chatBody.appendChild(row);
+      main.appendChild(row);
       input.value = "";
-      chatBody.scrollTop = chatBody.scrollHeight;
+      main.scrollTop = main.scrollHeight;
     }
 
     function escapeHtml(text) {
@@ -281,10 +273,10 @@
         .replaceAll("'", "&#039;");
     }
 
-    document.getElementById("messageInput").addEventListener("keydown", function(e) {
+    document.getElementById("msgInput").addEventListener("keydown", function(e) {
       if (e.key === "Enter" && !e.shiftKey) {
         e.preventDefault();
-        sendMessage();
+        sendMsg();
       }
     });
   </script>
