@@ -12,201 +12,174 @@
 
     body {
       margin: 0;
-      background: #f2f4f7;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
-        "Microsoft YaHei", Arial, sans-serif;
-      color: #1f2937;
+      background: #f2f2f2;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+      color: #222;
     }
 
     .chat-page {
       width: 100%;
-      max-width: 520px;
+      max-width: 640px;
       height: 100vh;
       margin: 0 auto;
-      background: #ffffff;
+      background: #fff;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+      border-left: 1px solid #e5e5e5;
+      border-right: 1px solid #e5e5e5;
     }
 
     .chat-header {
       height: 64px;
-      background: linear-gradient(135deg, #1687ff, #006eff);
-      color: #ffffff;
+      background: #1e88f5;
+      color: #fff;
       display: flex;
       align-items: center;
-      padding: 0 16px;
+      padding: 0 14px;
       flex-shrink: 0;
     }
 
     .back {
-      font-size: 30px;
-      margin-right: 12px;
+      font-size: 38px;
       line-height: 1;
+      margin-right: 12px;
+      font-weight: 300;
     }
 
-    .header-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.22);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 10px;
+    .chat-icon {
+      font-size: 34px;
+      margin-right: 12px;
+    }
+
+    .title {
       font-size: 22px;
-    }
-
-    .header-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .header-title {
-      font-size: 19px;
-      font-weight: 600;
-    }
-
-    .header-status {
-      font-size: 12px;
-      opacity: 0.9;
-      margin-top: 2px;
+      font-weight: 500;
     }
 
     .chat-body {
       flex: 1;
-      padding: 20px 16px;
+      padding: 34px 18px 18px;
       overflow-y: auto;
-      background: #ffffff;
-    }
-
-    .time {
-      text-align: center;
-      font-size: 12px;
-      color: #9ca3af;
-      margin: 10px 0 18px;
+      background: #fff;
     }
 
     .message-row {
       display: flex;
-      margin-bottom: 20px;
       align-items: flex-start;
-    }
-
-    .message-row.customer {
-      justify-content: flex-start;
-    }
-
-    .message-row.user {
-      justify-content: flex-end;
+      margin-bottom: 20px;
     }
 
     .avatar {
       width: 34px;
       height: 34px;
       border-radius: 50%;
-      background: #e8f1ff;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
+      font-size: 21px;
       flex-shrink: 0;
-    }
-
-    .customer .avatar {
       margin-right: 10px;
     }
 
-    .user .avatar {
-      margin-left: 10px;
+    .sender-line {
+      font-size: 18px;
+      color: #748093;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sender-name {
+      font-weight: 500;
+    }
+
+    .time {
+      font-size: 16px;
+      color: #8a94a6;
+    }
+
+    .service-content {
+      flex: 1;
     }
 
     .bubble {
+      display: inline-block;
+      background: #ededf0;
+      color: #111;
+      padding: 12px 14px;
+      font-size: 20px;
+      line-height: 1.55;
+      max-width: 100%;
+      white-space: pre-line;
+    }
+
+    .user-row {
+      justify-content: flex-end;
+    }
+
+    .user-bubble {
+      background: #1e88f5;
+      color: #fff;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 18px;
+      line-height: 1.5;
       max-width: 72%;
-      padding: 11px 14px;
-      border-radius: 12px;
-      font-size: 15px;
-      line-height: 1.6;
       word-break: break-word;
     }
 
-    .customer .bubble {
-      background: #f1f3f5;
-      color: #374151;
-      border-top-left-radius: 4px;
-    }
-
-    .user .bubble {
-      background: #1687ff;
-      color: #ffffff;
-      border-top-right-radius: 4px;
-    }
-
-    .chat-input-area {
+    .input-area {
+      height: 180px;
+      border-top: 1px solid #e5e5e5;
+      background: #fff;
       flex-shrink: 0;
-      background: #ffffff;
-      border-top: 1px solid #e5e7eb;
-      padding: 12px 12px 16px;
+      display: flex;
+      flex-direction: column;
     }
 
-    .input-box {
-      min-height: 72px;
-      border: 1px solid #e5e7eb;
-      border-radius: 14px;
-      background: #ffffff;
-      padding: 12px;
-    }
-
-    textarea {
-      width: 100%;
-      height: 42px;
+    .text-input {
+      flex: 1;
       border: none;
       outline: none;
       resize: none;
-      font-size: 15px;
+      padding: 14px 22px;
+      font-size: 18px;
+      color: #333;
       font-family: inherit;
-      color: #374151;
     }
 
-    textarea::placeholder {
-      color: #b4bbc6;
+    .text-input::placeholder {
+      color: #b8b8b8;
     }
 
-    .input-bottom {
-      margin-top: 10px;
+    .input-tools {
+      height: 70px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      padding: 0 16px 8px;
+      gap: 26px;
     }
 
-    .tools {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .tool-btn {
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
-      border: 1px solid #e5e7eb;
-      background: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 19px;
+    .tool {
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: transparent;
+      font-size: 30px;
       cursor: pointer;
+      padding: 0;
     }
 
     .send-btn {
+      margin-left: auto;
+      background: #1e88f5;
+      color: #fff;
       border: none;
-      background: #1687ff;
-      color: #ffffff;
-      border-radius: 10px;
-      padding: 9px 20px;
-      font-size: 15px;
+      border-radius: 8px;
+      padding: 9px 18px;
+      font-size: 18px;
       cursor: pointer;
-      box-shadow: 0 6px 18px rgba(22, 135, 255, 0.28);
     }
 
     .send-btn:active {
@@ -215,25 +188,30 @@
 
     .footer-tip {
       text-align: center;
-      color: #b6beca;
-      font-size: 12px;
-      margin-top: 10px;
+      font-size: 13px;
+      color: #d1d1d1;
+      padding-bottom: 10px;
     }
 
-    .contact-real {
-      color: #1687ff;
-      cursor: pointer;
-      text-decoration: underline;
-    }
-
-    @media (max-width: 540px) {
+    @media (max-width: 480px) {
       .chat-page {
         max-width: none;
-        height: 100vh;
       }
 
       .bubble {
-        max-width: 76%;
+        font-size: 17px;
+      }
+
+      .sender-line {
+        font-size: 16px;
+      }
+
+      .time {
+        font-size: 14px;
+      }
+
+      .input-area {
+        height: 165px;
       }
     }
   </style>
@@ -243,77 +221,60 @@
   <div class="chat-page">
     <header class="chat-header">
       <div class="back">‹</div>
-      <div class="header-icon">💬</div>
-      <div class="header-text">
-        <div class="header-title">在线客服</div>
-        <div class="header-status">客服在线 · 欢迎咨询</div>
-      </div>
+      <div class="chat-icon">💬</div>
+      <div class="title">在线客服</div>
     </header>
 
     <main class="chat-body" id="chatBody">
-      <div class="time">今天 16:36</div>
+      <div class="message-row">
+        <div class="avatar">👩🏻‍💼</div>
 
-      <div class="message-row user">
-        <div class="bubble">飞机多少钱</div>
-        <div class="avatar">👤</div>
-      </div>
+        <div class="service-content">
+          <div class="sender-line">
+            <span class="sender-name">客服</span>
+            <span class="time">17:43:36</span>
+          </div>
 
-      <div class="message-row user">
-        <div class="bubble">没人么</div>
-        <div class="avatar">👤</div>
-      </div>
+          <div class="bubble">客服在线时间9:30-24:00（下班请留言，上班后第一时间回复）
 
-      <div class="message-row customer">
-        <div class="avatar">👩‍💼</div>
-        <div class="bubble">您好！请问有什么可以帮助您的？</div>
+温馨提示：目前只有【1-8成品直登账号！】
+虚拟手机号暂时没有呢！
+请平台点击【仅退款】即可！
+
+第一步：发对应app数字给客服
+0、不要发敏感字
+1、打雀 ❌
+2、指✈️飞鸡
+3、古哥 由管
+4、脸输 🧩
+5、INs
+6、🐔皮踢
+7、踢克掏可
+8、WS</div>
+        </div>
       </div>
     </main>
 
-    <section class="chat-input-area">
-      <div class="input-box">
-        <textarea id="messageInput" placeholder="请输入文字，描述您的问题..."></textarea>
+    <section class="input-area">
+      <textarea
+        id="messageInput"
+        class="text-input"
+        placeholder="请输入文字 # 长按撤回·引用·复制"
+      ></textarea>
 
-        <div class="input-bottom">
-          <div class="tools">
-            <button class="tool-btn" type="button">😊</button>
-            <button class="tool-btn" type="button">📎</button>
-            <button class="tool-btn" type="button">🎙️</button>
-          </div>
+      <div class="input-tools">
+        <button class="tool" type="button">🙂</button>
+        <button class="tool" type="button">📁</button>
+        <button class="tool" type="button">🔊</button>
 
-          <button class="send-btn" type="button" onclick="sendMessage()">发送</button>
-        </div>
+        <button class="send-btn" type="button" onclick="sendMessage()">发送</button>
       </div>
 
-      <div class="footer-tip">
-        会话由在线客服提供服务，
-        <span class="contact-real" onclick="openTawk()">点击联系人工客服</span>
-      </div>
+      <div class="footer-tip">您也需要客服系统?</div>
     </section>
   </div>
 
-  <!-- Tawk.to 真实客服系统 -->
-  <script type="text/javascript">
-    var Tawk_API = Tawk_API || {};
-    var Tawk_LoadStart = new Date();
-
-    (function () {
-      var s1 = document.createElement("script");
-      var s0 = document.getElementsByTagName("script")[0];
-
-      s1.async = true;
-      s1.src = "https://embed.tawk.to/6a05db1c1358261c34fe7c05/1jojdvqfr";
-      s1.charset = "UTF-8";
-      s1.setAttribute("crossorigin", "*");
-
-      s0.parentNode.insertBefore(s1, s0);
-    })();
-
-    function openTawk() {
-      if (window.Tawk_API && window.Tawk_API.maximize) {
-        window.Tawk_API.maximize();
-      }
-    }
-
+  <script>
     function sendMessage() {
       const input = document.getElementById("messageInput");
       const chatBody = document.getElementById("chatBody");
@@ -321,32 +282,33 @@
 
       if (!text) return;
 
-      const userRow = document.createElement("div");
-      userRow.className = "message-row user";
-      userRow.innerHTML = `
-        <div class="bubble">${text}</div>
-        <div class="avatar">👤</div>
+      const row = document.createElement("div");
+      row.className = "message-row user-row";
+
+      row.innerHTML = `
+        <div class="user-bubble">${escapeHtml(text)}</div>
       `;
 
-      chatBody.appendChild(userRow);
+      chatBody.appendChild(row);
       input.value = "";
       chatBody.scrollTop = chatBody.scrollHeight;
-
-      setTimeout(() => {
-        const serviceRow = document.createElement("div");
-        serviceRow.className = "message-row customer";
-        serviceRow.innerHTML = `
-          <div class="avatar">👩‍💼</div>
-          <div class="bubble">
-            已收到您的问题。为了让客服能正式回复您，请点击下方“联系人工客服”进入在线客服窗口。
-          </div>
-        `;
-        chatBody.appendChild(serviceRow);
-        chatBody.scrollTop = chatBody.scrollHeight;
-
-        openTawk();
-      }, 600);
     }
+
+    function escapeHtml(text) {
+      return text
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    document.getElementById("messageInput").addEventListener("keydown", function(e) {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
   </script>
 </body>
 </html>
